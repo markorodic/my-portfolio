@@ -1,9 +1,9 @@
 body {
-	margin: 50px;
-	padding: 0px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  margin: 50px;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
@@ -101,3 +101,4 @@ body {
   flex-basis: 50%;
   margin: 3px;
 }
+
