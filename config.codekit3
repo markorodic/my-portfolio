@@ -29,6 +29,28 @@
 		"oF": 0,
 		"oS": 0
 		},
+	"\/img\/Cross.png": {
+		"ft": 32768,
+		"iS": 1589,
+		"oA": 0,
+		"oAP": "\/img\/Cross.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/img\/pointer.png": {
+		"ft": 32768,
+		"iS": 5065,
+		"oA": 0,
+		"oAP": "\/img\/pointer.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/index.html": {
 		"ft": 8192,
 		"oA": 2,

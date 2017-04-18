@@ -1,6 +1,7 @@
 body {
   margin: 50px;
   padding: 0px;
+  font-family: 'Open Sans', sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9,7 +10,8 @@ body {
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
-          justify-content: center; }
+          justify-content: center;
+  cursor: url(./img/pointer.png), auto; }
 
 .container {
   height: 700px;
@@ -137,8 +139,66 @@ body {
       flex-basis: 50%;
   margin: 3px; }
 
-.box_eight:hover {
-  background: #f0f4dc; }
+.titles {
+  font-size: 17px;
+  text-align: center;
+  color: #444444;
+  display: none;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /*margin-top: -50px;*/ }
+
+h4 {
+  margin-top: 10px;
+  margin-left: 10px;
+  opacity: 0.1; }
+
+.box_one:hover .titles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.box_two:hover .titles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.box_three:hover .titles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.box_four:hover .titles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.box_five:hover .titles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.box_six:hover .titles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.box_seven:hover .titles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.box_eight:hover .titles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
 
 .minimize_boxes {
   -webkit-animation: minimize .8s ease-in-out 0s forwards;
