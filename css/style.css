@@ -1,17 +1,115 @@
 body {
-  margin: 50px;
+  margin: 10px;
   padding: 0px;
   font-family: 'Open Sans', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: url(./img/pointer.png), auto;
+  cursor: url('img/pointer.png'), auto;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  height: 50px;
+  width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+}
+
+h4 {
+  font-size: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  opacity: 0.1;
+}
+
+h2 {
+  font-family: 'Dosis', sans-serif;
+  font-size: 15px;
+  padding: 3px;
+  color: #999999;
+  letter-spacing: 3px;
+}
+
+/*.mail{
+    width: 150px;
+    height: 100px;
+    border-radius: 2%;
+    background-color: #2196F3;
+    overflow: hidden;
+    box-shadow: 2px 2px 8px #888888; 
+}
+
+.mail-top {
+    z-index: 50;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: #1976D2;
+    transform: rotate(45deg);
+    top: -50px;
+    left: 25px;
+    box-shadow: 5px 0px 4px rgba(25,106,188,0.4);
+}
+
+.mail-bottom {
+    z-index: 20;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: rgba(25,106,188, 0.15);
+    transform: rotate(45deg);
+    top: -50px;
+    left: 25px;
+}
+
+.resize {
+  size: 50%;
+}*/
+
+.mail{
+  margin-right: 4px;
+  width: 36px;
+  height: 24px;
+  border-radius: 2%;
+  background-color: #2196F3;
+  overflow: hidden;
+/*  box-shadow: 2px 2px 9px #afafaf; 
+*/}
+
+.mail-top {
+    z-index: 50;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: #2196F3;
+    background: rgba(25,106,188,0.6);
+    transform: rotate(45deg);
+    opacity: 0.5;
+    top: -12px;
+    left: 7px;
+    box-shadow: 5px 0px 4px (188, 188, 188,0.4);
+}
+
+.mail-bottom {
+    z-index: 20;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: rgba(25,106,188,0.15);
+    transform: rotate(45deg);
+    top: -14px;
+    left: 8px;
 }
 
 .container {
   height: 700px;
   width: 900px;
   display: flex;
+  max-width: 100%;
 }
 
 .side_one {
@@ -110,24 +208,22 @@ body {
   background: #f4f4f4;
   flex-basis: 50%;
   margin: 3px;
+  opacity: 1;
 }
 
 .titles {
-  font-size: 17px;
+  font-size: 14px;
   text-align: center;
-  color: #444444;
+  color: black;
+  opacity: 0.4;
   display: none;
   flex-wrap: wrap;
   height: 100%;
   justify-content: center;
   align-items: center;
+  letter-spacing: 5px;
+  margin-top: -34px;
   /*margin-top: -50px;*/
-}
-
-h4 {
-  margin-top: 10px;
-  margin-left: 10px;
-  opacity: 0.1;
 }
 
 .box_one:hover .titles {
@@ -160,6 +256,60 @@ h4 {
 
 .box_eight:hover .titles {
   display: flex;
+}
+
+.fade-in-one {
+  opacity: 0;
+  animation: fadeIn .4s ease-in 1 forwards;
+  animation-delay: 1.4s;
+}
+
+.fade-in-two {
+  opacity: 0;
+  animation: fadeIn .6s ease-in 1 forwards;
+  animation-delay: 0.2s;
+}
+
+.fade-in-three {
+  opacity: 0;
+  animation: fadeIn .5s ease-in 1 forwards;
+  animation-delay: 0.4s;
+}
+
+.fade-in-four {
+  opacity: 0;
+  animation: fadeIn .4s ease-in 1 forwards;
+  animation-delay: 0.1s;
+}
+
+.fade-in-five {
+  opacity: 0;
+  animation: fadeIn .6s ease-in 1 forwards;
+  animation-delay: 1.1s;
+}
+
+.fade-in-six {
+  opacity: 0;
+  animation: fadeIn .8s ease-in 1 forwards;
+  animation-delay: 0.5s;
+}
+
+.fade-in-seven {
+  opacity: 0;
+  animation: fadeIn .9s ease-in 1 forwards;
+  animation-delay: .8s;
+}
+
+.fade-in-eight {
+  opacity: 0;
+  animation: fadeIn .4s ease-in 1 forwards;
+  animation-delay: .9s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 .minimize_boxes {

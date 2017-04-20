@@ -1,7 +1,9 @@
 window.onload = function() {
+
 	var x = document.getElementsByClassName("shrink")
 	var cross = document.getElementsByClassName("cross")
 	var lines = document.getElementsByClassName("line")
+	var env = document.getElementsByClassName("mail")
 
 	animate = {
 		first: [x[1], x[3], x[8]],
@@ -87,6 +89,7 @@ window.onload = function() {
 	})
 
 	x[10].addEventListener("click", function() {
+		x[10].style.opacity = "1"
 		style = window.getComputedStyle(x[0])
 		if (style.getPropertyValue('opacity') == "0") {
 			animate.seventh.forEach(function(i) {
@@ -173,8 +176,8 @@ window.onload = function() {
 	})
 
 	x[14].addEventListener("click", function() {
-
-		style = window.getComputedStyle(x[0])
+		x[14].style.opacity = "1"
+		var style = window.getComputedStyle(x[0])
 		if (style.getPropertyValue('opacity') == "0") {
 			animate.fifth.forEach(function(i) {
 				if (i == x[14]) {
@@ -202,6 +205,22 @@ window.onload = function() {
 		// animate.fifth.forEach(function(i) {
 		// 	i == x[14] ? i.className += " minimize_three" : i.className += " minimize_boxes"
 		// })
+	})
+
+	document.onmousemove = function() {
+	  // var x = document.getElementByTagName("Body"[0])
+	  var width = (document.body.clientWidth)/(252 - 23)
+	  var height = document.body.clientHeight/(253 - 2)
+	  var x = (parseInt(event.clientX/ width,10) + 23)
+	  var y = (parseInt(event.clientY/ height,10) + 2)
+	  // document.body.style.backgroundColor = "rgb(" + y/4 + ", " + x/4 + ", 80)"
+	  env[0].style.backgroundColor = "rgba(" + x + ", " + y + ", 240, 0.5)"
+	  env[1].style.backgroundColor = "rgba(" + x + ", " + y + ", 240, 0.5)"
+	  env[2].style.backgroundColor = "rgba(" + x + ", " + y + ", 240, 0.125)"
+	}
+
+	env.addEventListener("click", function() {
+		
 	})
 
 	// cross[0].addEventListener("click", function() {
