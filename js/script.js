@@ -1,6 +1,8 @@
 window.onload = function() {
 
 	var x = document.getElementsByClassName("shrink")
+	var boxes = document.getElementsByClassName("box")
+	var title = document.getElementsByClassName("titles")
 	var cross = document.getElementsByClassName("cross")
 	var lines = document.getElementsByClassName("line")
 	var env = document.getElementsByClassName("mail")
@@ -31,15 +33,22 @@ window.onload = function() {
 	x[1].addEventListener("click", function() {
 		style = window.getComputedStyle(x[3])
 		if (style.getPropertyValue('opacity') == "0") {
+			// x[8].style.display = 'flex'
 			animate.eighth.forEach(function(i) {
 				i.classList.remove('minimize_boxes')
 				i.classList.add('expand_boxes')
 			})
+			setTimeout(function() {
+				x[8].style.width = "auto"
+			}, 300);
 		} else {
 			animate.eighth.forEach(function(i) {
 				i.classList.remove('expand_boxes')
 				i.classList.add('minimize_boxes')
 			})
+			setTimeout(function() {
+  				x[8].style.width = "0px"
+			}, 500);
 		}
 	})
 
@@ -50,11 +59,19 @@ window.onload = function() {
 				i.classList.remove('minimize_boxes')
 				i.classList.add('expand_boxes')
 			})
+			setTimeout(function() {
+				x[8].style.width = "auto"
+				x[5].style.width = "auto"
+			}, 300);
 		} else {
 			animate.second.forEach(function(i) {
 				i.classList.remove('expand_boxes')
 				i.classList.add('minimize_boxes')
 			})
+			setTimeout(function() {
+  				x[8].style.width = "0px"
+				x[5].style.width = "0px"
+			}, 500);
 		}
 	})
 
@@ -65,11 +82,19 @@ window.onload = function() {
 				i.classList.remove('minimize_boxes')
 				i.classList.add('expand_boxes')
 			})
+			setTimeout(function() {
+				x[8].style.width = "auto"
+				x[4].style.width = "auto"
+			}, 300);
 		} else {
 			animate.third.forEach(function(i) {
 				i.classList.remove('expand_boxes')
 				i.classList.add('minimize_boxes')
 			})
+			setTimeout(function() {
+  				x[8].style.width = "0px"
+				x[4].style.width = "0px"
+			}, 500);
 		}
 	})
 
@@ -80,11 +105,18 @@ window.onload = function() {
 				i.classList.remove('minimize_boxes')
 				i.classList.add('expand_boxes')
 			})
+			setTimeout(function() {
+				x[8].style.width = "auto"
+			}, 300);
 		} else {
 			animate.first.forEach(function(i) {
 				i.classList.remove('expand_boxes')
 				i.classList.add('minimize_boxes')
 			})
+			setTimeout(function() {
+  				x[8].style.width = "0px"
+			}, 500);
+
 		}
 	})
 
@@ -102,6 +134,11 @@ window.onload = function() {
 					i.classList.add('expand_boxes')
 				}
 			})
+			setTimeout(function() {
+				x[0].style.width = "auto"
+				x[12].style.width = "auto"
+				x[11].style.height = "auto"
+			}, 300);
 		} else {
 			animate.seventh.forEach(function(i) {
 				if (i == x[10]) {
@@ -113,6 +150,11 @@ window.onload = function() {
 					i.classList.add('minimize_boxes')
 				}
 			})
+			setTimeout(function() {
+  				x[0].style.width = "0px"
+				x[12].style.width = "0px"
+				x[11].style.height = "0px"
+			}, 500);
 		}
 	})
 
@@ -129,6 +171,11 @@ window.onload = function() {
 					i.classList.add('expand_boxes')
 				}
 			})
+			setTimeout(function() {
+				x[0].style.width = "auto"
+				x[12].style.width = "auto"
+				x[10].style.height = "auto"
+			}, 300);
 		} else {
 			animate.fourth.forEach(function(i) {
 				if (i == x[10]) {
@@ -140,6 +187,9 @@ window.onload = function() {
 					i.classList.add('minimize_boxes')
 				}
 			})
+			x[0].style.width = "0px"
+			x[12].style.width = "0px"
+			x[10].style.height = "0px"
 		}
 	})
 
@@ -157,6 +207,11 @@ window.onload = function() {
 					i.classList.add('expand_boxes')
 				}
 			})
+			setTimeout(function() {
+				x[0].style.width = "auto"
+				x[9].style.width = "auto"
+				x[14].style.height = "auto"
+			}, 200);
 		} else {
 			animate.sixth.forEach(function(i) {
 				if (i == x[14]) {
@@ -168,6 +223,11 @@ window.onload = function() {
 					i.classList.add('minimize_boxes')
 				}
 			})
+			setTimeout(function() {
+				x[0].style.width = "0px"
+				x[9].style.width = "0px"
+				x[14].style.height = "0px"
+			}, 600);
 		}
 
 		// animate.sixth.forEach(function(i) {
@@ -189,6 +249,11 @@ window.onload = function() {
 					i.classList.add('expand_boxes')
 				}
 			})
+			setTimeout(function() {
+				x[0].style.width = "auto"
+				x[9].style.width = "auto"
+				x[13].style.height = "auto"
+			}, 200);
 		} else {
 			animate.fifth.forEach(function(i) {
 				if (i == x[14]) {
@@ -200,6 +265,11 @@ window.onload = function() {
 					i.classList.add('minimize_boxes')
 				}
 			})
+			setTimeout(function() {
+				x[0].style.width = "0px"
+				x[9].style.width = "0px"
+				x[13].style.height = "0px"
+			}, 500);
 		}
 
 		// animate.fifth.forEach(function(i) {
@@ -207,21 +277,42 @@ window.onload = function() {
 		// })
 	})
 
+	// titles[0].style.fontcolor = "blue"
+
 	document.onmousemove = function() {
 	  // var x = document.getElementByTagName("Body"[0])
 	  var width = (document.body.clientWidth)/(252 - 23)
 	  var height = document.body.clientHeight/(253 - 2)
-	  var x = (parseInt(event.clientX/ width,10) + 23)
-	  var y = (parseInt(event.clientY/ height,10) + 2)
+	  var x = (parseInt(event.clientX/ width,10) + 23)/4+180  
+	  var y = (parseInt(event.clientY/ height,10) + 23) * 1.3 - 30
 	  // document.body.style.backgroundColor = "rgb(" + y/4 + ", " + x/4 + ", 80)"
-	  env[0].style.backgroundColor = "rgba(" + x + ", " + y + ", 240, 0.5)"
-	  env[1].style.backgroundColor = "rgba(" + x + ", " + y + ", 240, 0.5)"
-	  env[2].style.backgroundColor = "rgba(" + x + ", " + y + ", 240, 0.125)"
-	}
+	  // env[0].style.backgroundColor = "rgba(" + x + ", " + y + ", 240, 0.5)"
+	  // env[1].style.backgroundColor = "rgba(" + x + ", " + y + ", 240, 0.5)"
+	  // env[2].style.backgroundColor = "rgba(" + x + ", " + y + ", 240, 0.125)"
 
-	env.addEventListener("click", function() {
-		
-	})
+	  title[0].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+	  title[1].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+	  title[2].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+	  title[3].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+	  title[4].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+	  title[5].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+	  title[6].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+	  title[7].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+
+	  boxes[0].style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
+	  boxes[1].style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
+	  boxes[2].style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
+	  boxes[3].style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
+	  boxes[4].style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
+	  boxes[5].style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
+	  boxes[6].style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
+	  boxes[7].style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
+
+
+	  // boxes.forEach(function(i) {
+	  // 	i.style.backgroundColor = "black" 
+	  // })
+	}
 
 	// cross[0].addEventListener("click", function() {
 	// 	lines[0].style.display = 'none'
