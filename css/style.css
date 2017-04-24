@@ -94,8 +94,11 @@ h5 {
 }
 
 @keyframes textMove {
-  50% {
+  30% {
     opacity: 0;
+  }
+  50% {
+    opacity: 1;
   }
   100% {
     opacity: 1;

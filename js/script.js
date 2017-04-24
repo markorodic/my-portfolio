@@ -229,12 +229,12 @@ window.onload = function() {
 			}, 500);
 
 			//show text
-			toHide[4].style.display = "block"
-			toHide[4].style.animation = "textMove 1.75s ease-in forwards"
 			title[4].style.display = "none"
 			setTimeout(function() {
+				toHide[4].style.display = "block"
+				toHide[4].style.animation = "textMove 1.75s ease-in forwards"
 				toHide[4].style.padding = "0px 70px 0px 70px"
-			}, 200)
+			}, 500)
 		}
 	})
 
@@ -277,12 +277,12 @@ window.onload = function() {
 			x[12].style.width = "0px"
 			x[10].style.height = "0px"
 
-			toHide[5].style.display = "block"
-			toHide[5].style.animation = "textMove 1.75s ease-in forwards"
 			title[5].style.display = "none"
 			setTimeout(function() {
+				toHide[5].style.display = "block"
+				toHide[5].style.animation = "textMove 1.75s ease-in forwards"
 				toHide[5].style.padding = "0px 70px 0px 70px"
-			}, 200)
+			}, 500)
 		}
 	})
 
@@ -328,12 +328,12 @@ window.onload = function() {
 				x[14].style.height = "0px"
 			}, 600);
 
-			toHide[6].style.display = "block"
-			toHide[6].style.animation = "textMove 1.75s ease-in forwards"
 			title[6].style.display = "none"
 			setTimeout(function() {
+				toHide[6].style.display = "block"
+				toHide[6].style.animation = "textMove 1.75s ease-in forwards"
 				toHide[6].style.padding = "0px 70px 0px 70px"
-			}, 200)
+			}, 500)
 		}
 
 		// animate.sixth.forEach(function(i) {
@@ -383,12 +383,12 @@ window.onload = function() {
 					x[13].style.height = "0px"
 				}, 500);
 
-				toHide[7].style.display = "block"
-				toHide[7].style.animation = "textMove 1.75s ease-in forwards"
 				title[7].style.display = "none"
 				setTimeout(function() {
+					toHide[7].style.display = "block"
+					toHide[7].style.animation = "textMove 1.75s ease-in forwards"
 					toHide[7].style.padding = "0px 70px 0px 70px"
-				}, 200)
+				}, 500)
 		}
 
 		// animate.fifth.forEach(function(i) {
