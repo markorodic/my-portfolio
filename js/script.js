@@ -6,6 +6,8 @@ window.onload = function() {
 	var cross = document.getElementsByClassName("cross")
 	var lines = document.getElementsByClassName("line")
 	var env = document.getElementsByClassName("mail")
+	var text = document.getElementsByClassName("content")
+	var toHide = document.getElementsByClassName("hide")
 
 	animate = {
 		first: [x[1], x[3], x[8]],
@@ -32,25 +34,48 @@ window.onload = function() {
 
 	x[1].addEventListener("click", function() {
 		style = window.getComputedStyle(x[3])
+
+		//expand the surrounding boxes therefore minimize the clicked box
 		if (style.getPropertyValue('opacity') == "0") {
 			// x[8].style.display = 'flex'
 			animate.eighth.forEach(function(i) {
 				i.classList.remove('minimize_boxes')
 				i.classList.add('expand_boxes')
 			})
+
+			//smooth out the transition
 			setTimeout(function() {
 				x[8].style.width = "auto"
 			}, 300);
+
+			//hide text
+			toHide[0].style.display = "none"
+			toHide[0].style.padding = "0px"
+			title[0].style.display = "block"
+
+		//minimize the surrounding boxes therefore expand the clicked box
 		} else {
 			animate.eighth.forEach(function(i) {
 				i.classList.remove('expand_boxes')
 				i.classList.add('minimize_boxes')
 			})
+
+			//smooth out the transition
 			setTimeout(function() {
   				x[8].style.width = "0px"
 			}, 500);
+
+			//show text
+			toHide[0].style.display = "block"
+			toHide[0].style.animation = "textMove 1.75s ease-in forwards"
+			title[0].style.display = "none"
+			setTimeout(function() {
+				toHide[0].style.padding = "0px 70px 0px 70px"
+			}, 400)
 		}
 	})
+
+	// document.getElementsByClassName("box_one")[0].style.display = "flex"
 
 	x[4].addEventListener("click", function() {
 		style = window.getComputedStyle(x[1])
@@ -63,6 +88,12 @@ window.onload = function() {
 				x[8].style.width = "auto"
 				x[5].style.width = "auto"
 			}, 300);
+
+			//hide text
+			toHide[1].style.display = "none"
+			toHide[1].style.padding = "0px"
+			title[1].style.display = "block"
+
 		} else {
 			animate.second.forEach(function(i) {
 				i.classList.remove('expand_boxes')
@@ -72,6 +103,14 @@ window.onload = function() {
   				x[8].style.width = "0px"
 				x[5].style.width = "0px"
 			}, 500);
+
+			//show text
+			toHide[1].style.display = "block"
+			toHide[1].style.animation = "textMove 1.75s ease-in forwards"
+			title[1].style.display = "none"
+			setTimeout(function() {
+				toHide[1].style.padding = "0px 70px 0px 70px"
+			}, 200)
 		}
 	})
 
@@ -86,6 +125,12 @@ window.onload = function() {
 				x[8].style.width = "auto"
 				x[4].style.width = "auto"
 			}, 300);
+
+			//hide text
+			toHide[2].style.display = "none"
+			toHide[2].style.padding = "0px"
+			title[2].style.display = "block"
+
 		} else {
 			animate.third.forEach(function(i) {
 				i.classList.remove('expand_boxes')
@@ -95,6 +140,14 @@ window.onload = function() {
   				x[8].style.width = "0px"
 				x[4].style.width = "0px"
 			}, 500);
+
+			//show text
+			toHide[2].style.display = "block"
+			toHide[2].style.animation = "textMove 1.75s ease-in forwards"
+			title[2].style.display = "none"
+			setTimeout(function() {
+				toHide[2].style.padding = "0px 70px 0px 70px"
+			}, 300)
 		}
 	})
 
@@ -108,6 +161,12 @@ window.onload = function() {
 			setTimeout(function() {
 				x[8].style.width = "auto"
 			}, 300);
+
+			//hide text
+			toHide[3].style.display = "none"
+			toHide[3].style.padding = "0px"
+			title[3].style.display = "block"
+
 		} else {
 			animate.first.forEach(function(i) {
 				i.classList.remove('expand_boxes')
@@ -117,6 +176,13 @@ window.onload = function() {
   				x[8].style.width = "0px"
 			}, 500);
 
+			//show text
+			toHide[3].style.display = "block"
+			toHide[3].style.animation = "textMove 1.75s ease-in forwards"
+			title[3].style.display = "none"
+			setTimeout(function() {
+				toHide[3].style.padding = "0px 70px 0px 70px"
+			}, 200)
 		}
 	})
 
@@ -139,6 +205,12 @@ window.onload = function() {
 				x[12].style.width = "auto"
 				x[11].style.height = "auto"
 			}, 300);
+
+			//hide text
+			toHide[4].style.display = "none"
+			toHide[4].style.padding = "0px"
+			title[4].style.display = "block"
+
 		} else {
 			animate.seventh.forEach(function(i) {
 				if (i == x[10]) {
@@ -155,6 +227,14 @@ window.onload = function() {
 				x[12].style.width = "0px"
 				x[11].style.height = "0px"
 			}, 500);
+
+			//show text
+			toHide[4].style.display = "block"
+			toHide[4].style.animation = "textMove 1.75s ease-in forwards"
+			title[4].style.display = "none"
+			setTimeout(function() {
+				toHide[4].style.padding = "0px 70px 0px 70px"
+			}, 200)
 		}
 	})
 
@@ -176,6 +256,12 @@ window.onload = function() {
 				x[12].style.width = "auto"
 				x[10].style.height = "auto"
 			}, 300);
+
+			//hide text
+			toHide[5].style.display = "none"
+			toHide[5].style.padding = "0px"
+			title[5].style.display = "block"
+
 		} else {
 			animate.fourth.forEach(function(i) {
 				if (i == x[10]) {
@@ -190,6 +276,13 @@ window.onload = function() {
 			x[0].style.width = "0px"
 			x[12].style.width = "0px"
 			x[10].style.height = "0px"
+
+			toHide[5].style.display = "block"
+			toHide[5].style.animation = "textMove 1.75s ease-in forwards"
+			title[5].style.display = "none"
+			setTimeout(function() {
+				toHide[5].style.padding = "0px 70px 0px 70px"
+			}, 200)
 		}
 	})
 
@@ -212,6 +305,12 @@ window.onload = function() {
 				x[9].style.width = "auto"
 				x[14].style.height = "auto"
 			}, 200);
+
+			//hide text
+			toHide[6].style.display = "none"
+			toHide[6].style.padding = "0px"
+			title[6].style.display = "block"
+			
 		} else {
 			animate.sixth.forEach(function(i) {
 				if (i == x[14]) {
@@ -228,6 +327,13 @@ window.onload = function() {
 				x[9].style.width = "0px"
 				x[14].style.height = "0px"
 			}, 600);
+
+			toHide[6].style.display = "block"
+			toHide[6].style.animation = "textMove 1.75s ease-in forwards"
+			title[6].style.display = "none"
+			setTimeout(function() {
+				toHide[6].style.padding = "0px 70px 0px 70px"
+			}, 200)
 		}
 
 		// animate.sixth.forEach(function(i) {
@@ -254,6 +360,12 @@ window.onload = function() {
 				x[9].style.width = "auto"
 				x[13].style.height = "auto"
 			}, 200);
+
+			//hide text
+			toHide[7].style.display = "none"
+			toHide[7].style.padding = "0px"
+			title[7].style.display = "block"
+
 		} else {
 			animate.fifth.forEach(function(i) {
 				if (i == x[14]) {
@@ -264,12 +376,19 @@ window.onload = function() {
 					i.classList.remove('expand_boxes')
 					i.classList.add('minimize_boxes')
 				}
-			})
-			setTimeout(function() {
-				x[0].style.width = "0px"
-				x[9].style.width = "0px"
-				x[13].style.height = "0px"
-			}, 500);
+				})
+				setTimeout(function() {
+					x[0].style.width = "0px"
+					x[9].style.width = "0px"
+					x[13].style.height = "0px"
+				}, 500);
+
+				toHide[7].style.display = "block"
+				toHide[7].style.animation = "textMove 1.75s ease-in forwards"
+				title[7].style.display = "none"
+				setTimeout(function() {
+					toHide[7].style.padding = "0px 70px 0px 70px"
+				}, 200)
 		}
 
 		// animate.fifth.forEach(function(i) {
@@ -298,6 +417,15 @@ window.onload = function() {
 	  title[5].style.color = "rgb(" + y + ", " + y + ", " + y +")"
 	  title[6].style.color = "rgb(" + y + ", " + y + ", " + y +")"
 	  title[7].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+
+	  toHide[0].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+	  toHide[1].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+	  toHide[2].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+	  toHide[3].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+	  toHide[4].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+	  toHide[5].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+	  toHide[6].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+	  toHide[7].style.color = "rgb(" + y + ", " + y + ", " + y +")"
 
 	  boxes[0].style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
 	  boxes[1].style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
