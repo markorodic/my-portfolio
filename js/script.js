@@ -1,449 +1,147 @@
 window.onload = function() {
 
-	var x = document.getElementsByClassName("shrink")
+	//Variables
+	var sides = document.getElementsByClassName("side")
+	var areas = document.getElementsByClassName("area")
 	var boxes = document.getElementsByClassName("box")
-	var title = document.getElementsByClassName("titles")
-	var cross = document.getElementsByClassName("cross")
-	var lines = document.getElementsByClassName("line")
+	var parent = document.getElementsByClassName('container')[0]
+	var title = document.getElementsByClassName('titles')
+	var body = document.getElementsByClassName('bodyText')
 	var env = document.getElementsByClassName("mail")
-	var text = document.getElementsByClassName("content")
-	var toHide = document.getElementsByClassName("hide")
 
-	animate = {
-		first: [x[1], x[3], x[8]],
-		second: [x[1], x[5], x[6], x[8]],
-		third: [x[1], x[4], x[6], x[8]],
-		fourth: [x[0], x[10], x[12]],
-		fifth: [x[0], x[9], x[13], x[14]],
-		sixth: [x[0], x[9], x[14]],
-		seventh: [x[0], x[10], x[11], x[12]],
-		eighth: [x[3], x[6], x[8]]
+	function hideTitles(result) {
+		var count = 0
+		while (count < 8) {
+			title[count].style.display = result
+			count++
+		}
 	}
 
-	function createDiv(parent) {
-		// var div = document.createElement("div")
-		// var line = document.createElement("div")
-		// var lineTwo = document.createElement("div")
-		// parent.appendChild(div)
-		// div.appendChild(line)
-		// div.appendChild(lineTwo)
-		// div.className = "cross"
-		// div.className= "line"
-		// div.className= "lineTwo"
+	function showBodyText(box, result) {
+		boxIndex = Object.keys(whichBox).indexOf(box)
+		body[boxIndex].style.display = result
 	}
 
-	x[1].addEventListener("click", function() {
-		style = window.getComputedStyle(x[3])
+	//Boxes
+	var whichBox = {
+		one: boxes[0],
+		two: boxes[1],
+		three: boxes[2],
+		four: boxes[3],
+		five: boxes[4],
+		six: boxes[5],
+		seven: boxes[6],
+		eight: boxes[7]
+	}
 
-		//expand the surrounding boxes therefore minimize the clicked box
-		if (style.getPropertyValue('opacity') == "0") {
-			// x[8].style.display = 'flex'
-			animate.eighth.forEach(function(i) {
-				i.classList.remove('minimize_boxes')
-				i.classList.add('expand_boxes')
-			})
 
-			//smooth out the transition
-			setTimeout(function() {
-				x[8].style.width = "auto"
-			}, 300);
+	//Which to open and close
+	var change = {
+		one: [sides[1], areas[1], areas[2]],
+		two: [sides[1], areas[0], areas[2], boxes[2]],
+		three: [sides[1], areas[0], areas[2], boxes[1]],
+		four: [sides[1], areas[0], areas[1]],
+		five: [sides[0], areas[4], boxes[5]],
+		six: [sides[0], areas[4], boxes[4]],
+		seven: [sides[0], areas[3], boxes[7]],
+		eight: [sides[0], areas[3], boxes[6]]
+	}
 
-			//hide text
-			toHide[0].style.display = "none"
-			toHide[0].style.padding = "0px"
-			title[0].style.display = "block"
+	// Fade boxes in
+	// function fadedIn(){
+	// 	Object.values(whichBox).forEach(function(box) {
+	// 		var boxName = box.className.split(' ')[0]
+	// 		box.classList.add('fade-in-' + boxName)
+	// 	})
+	// }
 
-		//minimize the surrounding boxes therefore expand the clicked box
+	// fadedIn()
+
+	//Open and close methods
+	function minimize(element) {
+		element.classList.remove('expand')
+		element.classList.add('minimize')
+		console.log(element.classList)
+	}
+
+	function expand(element) {
+		element.classList.remove('minimize')
+		element.classList.add('expand')
+	}
+
+	//Boolean of whether it is opened or closed
+	function closedBoxOnThe(whichSide) {
+		if (whichSide == 'left') {
+			var style = window.getComputedStyle(sides[1])
+			return style.getPropertyValue('opacity') == "1"
 		} else {
-			animate.eighth.forEach(function(i) {
-				i.classList.remove('expand_boxes')
-				i.classList.add('minimize_boxes')
+			var style = window.getComputedStyle(sides[0])
+			return style.getPropertyValue('opacity') == "1"
+		}
+	}
+
+	//Which side of the container is the box
+	function boxSide(boxName) {
+		(boxName == 'one') || (boxName == 'two') || (boxName == 'three') || (boxName == 'four') ? side = 'left' : side = 'right'
+		return side
+	}
+
+	//Open the box
+	function openBox(boxName) {
+		var side = boxSide(boxName)
+		if (closedBoxOnThe(side)) {
+			change[boxName].forEach(function(section) {
+				console.log('y')
+				minimize(section)
 			})
-
-			//smooth out the transition
+			hideTitles('none')
+			showBodyText(boxName, 'flex')
+		} else {
+			change[boxName].forEach(function(section) {
+				expand(section)
+			})
 			setTimeout(function() {
-  				x[8].style.width = "0px"
-			}, 500);
+				hideTitles('flex')
+			}, 350)
+			showBodyText(boxName, 'none')
+		}
+	}
 
-			//show text
-			toHide[0].style.display = "block"
-			toHide[0].style.animation = "textMove 1.75s ease-in forwards"
-			title[0].style.display = "none"
-			setTimeout(function() {
-				toHide[0].style.padding = "0px 70px 0px 70px"
-			}, 400)
+	//Listen for clicks and send the correct box to the openBox method
+	parent.addEventListener('click', function(e) {
+		if (e.target !== e.currentTarget) {
+			var clickedItem = e.target.className.split(" ")[0]
+			openBox(clickedItem)
 		}
 	})
 
-	// document.getElementsByClassName("box_one")[0].style.display = "flex"
-
-	x[4].addEventListener("click", function() {
-		style = window.getComputedStyle(x[1])
-		if (style.getPropertyValue('opacity') == "0") {
-			animate.second.forEach(function(i) {
-				i.classList.remove('minimize_boxes')
-				i.classList.add('expand_boxes')
-			})
-			setTimeout(function() {
-				x[8].style.width = "auto"
-				x[5].style.width = "auto"
-			}, 300);
-
-			//hide text
-			toHide[1].style.display = "none"
-			toHide[1].style.padding = "0px"
-			title[1].style.display = "block"
-
-		} else {
-			animate.second.forEach(function(i) {
-				i.classList.remove('expand_boxes')
-				i.classList.add('minimize_boxes')
-			})
-			setTimeout(function() {
-  				x[8].style.width = "0px"
-				x[5].style.width = "0px"
-			}, 500);
-
-			//show text
-			toHide[1].style.display = "block"
-			toHide[1].style.animation = "textMove 1.75s ease-in forwards"
-			title[1].style.display = "none"
-			setTimeout(function() {
-				toHide[1].style.padding = "0px 70px 0px 70px"
-			}, 200)
-		}
-	})
-
-	x[5].addEventListener("click", function() {
-		style = window.getComputedStyle(x[1])
-		if (style.getPropertyValue('opacity') == "0") {
-			animate.third.forEach(function(i) {
-				i.classList.remove('minimize_boxes')
-				i.classList.add('expand_boxes')
-			})
-			setTimeout(function() {
-				x[8].style.width = "auto"
-				x[4].style.width = "auto"
-			}, 300);
-
-			//hide text
-			toHide[2].style.display = "none"
-			toHide[2].style.padding = "0px"
-			title[2].style.display = "block"
-
-		} else {
-			animate.third.forEach(function(i) {
-				i.classList.remove('expand_boxes')
-				i.classList.add('minimize_boxes')
-			})
-			setTimeout(function() {
-  				x[8].style.width = "0px"
-				x[4].style.width = "0px"
-			}, 500);
-
-			//show text
-			toHide[2].style.display = "block"
-			toHide[2].style.animation = "textMove 1.75s ease-in forwards"
-			title[2].style.display = "none"
-			setTimeout(function() {
-				toHide[2].style.padding = "0px 70px 0px 70px"
-			}, 300)
-		}
-	})
-
-	x[6].addEventListener("click", function() {
-		style = window.getComputedStyle(x[1])
-		if (style.getPropertyValue('opacity') == "0") {
-			animate.first.forEach(function(i) {
-				i.classList.remove('minimize_boxes')
-				i.classList.add('expand_boxes')
-			})
-			setTimeout(function() {
-				x[8].style.width = "auto"
-			}, 300);
-
-			//hide text
-			toHide[3].style.display = "none"
-			toHide[3].style.padding = "0px"
-			title[3].style.display = "block"
-
-		} else {
-			animate.first.forEach(function(i) {
-				i.classList.remove('expand_boxes')
-				i.classList.add('minimize_boxes')
-			})
-			setTimeout(function() {
-  				x[8].style.width = "0px"
-			}, 500);
-
-			//show text
-			toHide[3].style.display = "block"
-			toHide[3].style.animation = "textMove 1.75s ease-in forwards"
-			title[3].style.display = "none"
-			setTimeout(function() {
-				toHide[3].style.padding = "0px 70px 0px 70px"
-			}, 200)
-		}
-	})
-
-	x[10].addEventListener("click", function() {
-		x[10].style.opacity = "1"
-		style = window.getComputedStyle(x[0])
-		if (style.getPropertyValue('opacity') == "0") {
-			animate.seventh.forEach(function(i) {
-				if (i == x[10]) {
-					i.classList.remove('minimize_boxes_three')
-					i.classList.remove('minimize_boxes_two')
-					i.classList.add('expand_boxes_three')
-				} else {
-					i.classList.remove('minimize_boxes')
-					i.classList.add('expand_boxes')
-				}
-			})
-			setTimeout(function() {
-				x[0].style.width = "auto"
-				x[12].style.width = "auto"
-				x[11].style.height = "auto"
-			}, 300);
-
-			//hide text
-			toHide[4].style.display = "none"
-			toHide[4].style.padding = "0px"
-			title[4].style.display = "block"
-
-		} else {
-			animate.seventh.forEach(function(i) {
-				if (i == x[10]) {
-					i.classList.remove('expand_boxes_two')
-					i.classList.remove('expand_boxes_three')
-					i.classList.add('minimize_boxes_three')
-				} else {
-					i.classList.remove('expand_boxes')
-					i.classList.add('minimize_boxes')
-				}
-			})
-			setTimeout(function() {
-  				x[0].style.width = "0px"
-				x[12].style.width = "0px"
-				x[11].style.height = "0px"
-			}, 500);
-
-			//show text
-			title[4].style.display = "none"
-			setTimeout(function() {
-				toHide[4].style.display = "block"
-				toHide[4].style.animation = "textMove 1.75s ease-in forwards"
-				toHide[4].style.padding = "0px 70px 0px 70px"
-			}, 500)
-		}
-	})
-
-	x[11].addEventListener("click", function() {
-		style = window.getComputedStyle(x[0])
-		if (style.getPropertyValue('opacity') == "0") {
-			animate.fourth.forEach(function(i) {
-				if (i == x[10]) {
-					i.classList.remove('minimize_boxes_two')
-					i.classList.remove('minimize_boxes_three')
-					i.classList.add('expand_boxes_two')
-				} else {
-					i.classList.remove('minimize_boxes')
-					i.classList.add('expand_boxes')
-				}
-			})
-			setTimeout(function() {
-				x[0].style.width = "auto"
-				x[12].style.width = "auto"
-				x[10].style.height = "auto"
-			}, 300);
-
-			//hide text
-			toHide[5].style.display = "none"
-			toHide[5].style.padding = "0px"
-			title[5].style.display = "block"
-
-		} else {
-			animate.fourth.forEach(function(i) {
-				if (i == x[10]) {
-					i.classList.remove('expand_boxes_two')
-					i.classList.remove('expand_boxes_three')
-					i.classList.add('minimize_boxes_two')
-				} else {
-					i.classList.remove('expand_boxes')
-					i.classList.add('minimize_boxes')
-				}
-			})
-			x[0].style.width = "0px"
-			x[12].style.width = "0px"
-			x[10].style.height = "0px"
-
-			title[5].style.display = "none"
-			setTimeout(function() {
-				toHide[5].style.display = "block"
-				toHide[5].style.animation = "textMove 1.75s ease-in forwards"
-				toHide[5].style.padding = "0px 70px 0px 70px"
-			}, 500)
-		}
-	})
-
-	x[13].addEventListener("click", function() {
-
-		style = window.getComputedStyle(x[0])
-		if (style.getPropertyValue('opacity') == "0") {
-			animate.sixth.forEach(function(i) {
-				if (i == x[14]) {
-					i.classList.remove('minimize_boxes_two')
-					i.classList.remove('minimize_boxes_three')
-					i.classList.add('expand_boxes_two')
-				} else {
-					i.classList.remove('minimize_boxes')
-					i.classList.add('expand_boxes')
-				}
-			})
-			setTimeout(function() {
-				x[0].style.width = "auto"
-				x[9].style.width = "auto"
-				x[14].style.height = "auto"
-			}, 200);
-
-			//hide text
-			toHide[6].style.display = "none"
-			toHide[6].style.padding = "0px"
-			title[6].style.display = "block"
-			
-		} else {
-			animate.sixth.forEach(function(i) {
-				if (i == x[14]) {
-					i.classList.remove('expand_boxes_two')
-					i.classList.remove('expand_boxes_three')
-					i.classList.add('minimize_boxes_two')
-				} else {
-					i.classList.remove('expand_boxes')
-					i.classList.add('minimize_boxes')
-				}
-			})
-			setTimeout(function() {
-				x[0].style.width = "0px"
-				x[9].style.width = "0px"
-				x[14].style.height = "0px"
-			}, 600);
-
-			title[6].style.display = "none"
-			setTimeout(function() {
-				toHide[6].style.display = "block"
-				toHide[6].style.animation = "textMove 1.75s ease-in forwards"
-				toHide[6].style.padding = "0px 70px 0px 70px"
-			}, 500)
-		}
-
-		// animate.sixth.forEach(function(i) {
-		// 	i == x[14] ? i.className += " minimize_boxes_two" : i.className += " minimize_boxes"
-		// })
-	})
-
-	x[14].addEventListener("click", function() {
-		x[14].style.opacity = "1"
-		var style = window.getComputedStyle(x[0])
-		if (style.getPropertyValue('opacity') == "0") {
-			animate.fifth.forEach(function(i) {
-				if (i == x[14]) {
-					i.classList.remove('minimize_boxes_two')
-					i.classList.remove('minimize_boxes_three')
-					i.classList.add('expand_boxes_three')
-				} else {
-					i.classList.remove('minimize_boxes')
-					i.classList.add('expand_boxes')
-				}
-			})
-			setTimeout(function() {
-				x[0].style.width = "auto"
-				x[9].style.width = "auto"
-				x[13].style.height = "auto"
-			}, 200);
-
-			//hide text
-			toHide[7].style.display = "none"
-			toHide[7].style.padding = "0px"
-			title[7].style.display = "block"
-
-		} else {
-			animate.fifth.forEach(function(i) {
-				if (i == x[14]) {
-					i.classList.remove('expand_boxes_two')
-					i.classList.remove('expand_boxes_three')
-					i.classList.add('minimize_boxes_three')
-				} else {
-					i.classList.remove('expand_boxes')
-					i.classList.add('minimize_boxes')
-				}
-				})
-				setTimeout(function() {
-					x[0].style.width = "0px"
-					x[9].style.width = "0px"
-					x[13].style.height = "0px"
-				}, 500);
-
-				title[7].style.display = "none"
-				setTimeout(function() {
-					toHide[7].style.display = "block"
-					toHide[7].style.animation = "textMove 1.75s ease-in forwards"
-					toHide[7].style.padding = "0px 70px 0px 70px"
-				}, 500)
-		}
-
-		// animate.fifth.forEach(function(i) {
-		// 	i == x[14] ? i.className += " minimize_three" : i.className += " minimize_boxes"
-		// })
-	})
-
-	// titles[0].style.fontcolor = "blue"
-
+	// Change box color on mousemove
 	document.onmousemove = function() {
-	  // var x = document.getElementByTagName("Body"[0])
 	  var width = (document.body.clientWidth)/(252 - 23)
 	  var height = document.body.clientHeight/(253 - 2)
 	  var x = (parseInt(event.clientX/ width,10) + 23)/4+180  
-	  var y = (parseInt(event.clientY/ height,10) + 23) * 1.3 - 30
-	  // document.body.style.backgroundColor = "rgb(" + y/4 + ", " + x/4 + ", 80)"
-	  // env[0].style.backgroundColor = "rgba(" + x + ", " + y + ", 240, 0.5)"
-	  // env[1].style.backgroundColor = "rgba(" + x + ", " + y + ", 240, 0.5)"
-	  // env[2].style.backgroundColor = "rgba(" + x + ", " + y + ", 240, 0.125)"
+	  var y = (parseInt(event.clientY/ height,10))/2 + 120
+	  var x1 = 200 - (parseInt(event.clientX/ width,10) + 23)
+	  var y2 = 200 - (parseInt(event.clientY/ height,10) + 2)/2
+	  
+	  env[0].style.backgroundColor = "rgba(" + x1 + ", " + y2 + ", 220, 0.5)"
+	  env[1].style.backgroundColor = "rgba(" + x1 + ", " + y2 + ", 220, 0.5)"
+	  env[2].style.backgroundColor = "rgba(" + x1 + ", " + y2 + ", 220, 0.125)"
 
-	  title[0].style.color = "rgb(" + y + ", " + y + ", " + y +")"
-	  title[1].style.color = "rgb(" + y + ", " + y + ", " + y +")"
-	  title[2].style.color = "rgb(" + y + ", " + y + ", " + y +")"
-	  title[3].style.color = "rgb(" + y + ", " + y + ", " + y +")"
-	  title[4].style.color = "rgb(" + y + ", " + y + ", " + y +")"
-	  title[5].style.color = "rgb(" + y + ", " + y + ", " + y +")"
-	  title[6].style.color = "rgb(" + y + ", " + y + ", " + y +")"
-	  title[7].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+	  var count = 0
+	  while (count < 8) {
+	  	body[count].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+		count++
+	  }
 
-	  toHide[0].style.color = "rgb(" + y + ", " + y + ", " + y +")"
-	  toHide[1].style.color = "rgb(" + y + ", " + y + ", " + y +")"
-	  toHide[2].style.color = "rgb(" + y + ", " + y + ", " + y +")"
-	  toHide[3].style.color = "rgb(" + y + ", " + y + ", " + y +")"
-	  toHide[4].style.color = "rgb(" + y + ", " + y + ", " + y +")"
-	  toHide[5].style.color = "rgb(" + y + ", " + y + ", " + y +")"
-	  toHide[6].style.color = "rgb(" + y + ", " + y + ", " + y +")"
-	  toHide[7].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+	  var count = 0
+	  while (count < 8) {
+	  	title[count].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+		count++
+	  }
 
-	  boxes[0].style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
-	  boxes[1].style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
-	  boxes[2].style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
-	  boxes[3].style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
-	  boxes[4].style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
-	  boxes[5].style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
-	  boxes[6].style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
-	  boxes[7].style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
-
-
-	  // boxes.forEach(function(i) {
-	  // 	i.style.backgroundColor = "black" 
-	  // })
+	  Object.values(whichBox).forEach(function(box) {
+	  	box.style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
+	  })
 	}
-
-	// cross[0].addEventListener("click", function() {
-	// 	lines[0].style.display = 'none'
-	// 	lines[1].style.display = 'none'
-	// })
 }
