@@ -59,14 +59,27 @@ window.onload = function() {
 
 	//Open and close methods
 	function minimize(element) {
-		element.classList.remove('expand')
-		element.classList.add('minimize')
-		console.log(element.classList)
+		console.log(navigator.userAgent.indexOf("Safari") == 100)
+		if (navigator.userAgent.indexOf("Safari") != 100) {
+			element.classList.remove('expand')
+			element.classList.add('minimize')
+		} else {
+			element.style.flexBasis = "0%"
+			element.style.flexGrow = "0"
+			element.style.opacity = "0"
+		}
 	}
 
 	function expand(element) {
-		element.classList.remove('minimize')
-		element.classList.add('expand')
+		console.log(navigator.userAgent.indexOf("Safari") == 100)
+		if (navigator.userAgent.indexOf("Safari") != 100) {
+			element.classList.remove('minimize')
+			element.classList.add('expand')
+		} else {
+			element.style.flexBasis = "100%"
+			element.style.flexGrow = "1"
+			element.style.opacity = "1"
+		}
 	}
 
 	//Boolean of whether it is opened or closed
@@ -91,7 +104,6 @@ window.onload = function() {
 		var side = boxSide(boxName)
 		if (closedBoxOnThe(side)) {
 			change[boxName].forEach(function(section) {
-				console.log('y')
 				minimize(section)
 			})
 			hideTitles('none')
@@ -140,7 +152,12 @@ window.onload = function() {
 		count++
 	  }
 
-	  Object.values(whichBox).forEach(function(box) {
+	  var boxArray = Object.keys(whichBox).map(function(key) {
+      	return whichBox[key]
+	  })
+
+	  boxArray.forEach(function(box) {
+	  	console.log('body')
 	  	box.style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
 	  })
 	}
