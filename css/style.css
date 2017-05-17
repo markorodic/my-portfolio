@@ -18,7 +18,7 @@ body {
 
 header {
   height: 50px;
-  width: 900px;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -33,11 +33,19 @@ header {
 .headline {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.logo {
+  margin-left: 3px;
+  margin-right: 7px;
+  height: 30px;
+  width: auto; }
 
 h1:nth-child(1) {
-  opacity: 1;
-  margin-left: 0px; }
+  opacity: 1; }
 
 h1 {
   font-family: 'Dosis', sans-serif;
@@ -45,44 +53,49 @@ h1 {
   padding: 3px;
   color: #999999;
   letter-spacing: 3px;
-  opacity: 0.2;
-  margin-left: 10px; }
+  opacity: 0.5;
+  margin-left: 10px;
+  margin-top: 26px; }
 
-.mail {
+.icon {
+  height: 20px;
+  width: auto;
+  opacity: 0.5;
+  margin-right: 20px; }
+
+/*.mail{
   margin-right: 4px;
   width: 36px;
   height: 24px;
   border-radius: 2%;
   background-color: #2196F3;
   overflow: hidden;
-  /*  box-shadow: 2px 2px 9px #afafaf; 
-*/ }
+}
 
 .mail-top {
-  z-index: 50;
-  position: relative;
-  width: 24px;
-  height: 24px;
-  background: black;
-  background: #1976D2;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  opacity: 0.5;
-  top: -12px;
-  left: 7px;
-  box-shadow: 5px 0px 4px 188, 188, 188, 0.4; }
+    z-index: 50;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: black;
+    background: #1976D2;
+    transform: rotate(45deg);
+    opacity: 0.5;
+    top: -12px;
+    left: 7px;
+    box-shadow: 5px 0px 4px (188, 188, 188,0.4);
+}
 
 .mail-bottom {
-  z-index: 20;
-  position: relative;
-  width: 24px;
-  height: 24px;
-  background: rgba(25, 106, 188, 0.15);
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  top: -14px;
-  left: 8px; }
-
+    z-index: 20;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: rgba(25,106,188, 0.15);
+    transform: rotate(45deg);
+    top: -14px;
+    left: 8px;
+}*/
 /*Grid*/
 .container {
   height: 700px;
@@ -138,8 +151,11 @@ h1 {
   z-index: 3; }
 
 .five, .eight {
-  -ms-flex-negative: 1.98;
-      flex-shrink: 1.98; }
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  -webkit-box-flex: 0.5;
+      -ms-flex-positive: 0.5;
+          flex-grow: 0.5; }
 
 .minimize {
   -webkit-animation: minimize .8s ease-in-out 0s forwards;
@@ -315,7 +331,14 @@ h2 {
           animation: bodyFade 1s 0.9s forwards; }
 
 h5 {
-  margin: 0px 0px -40px 0px; }
+  margin: 0px 0px -30px 0px; }
+
+.line {
+  margin-top: 40px;
+  height: 1px;
+  width: 100px;
+  background: grey;
+  opacity: 0.2; }
 
 @-webkit-keyframes bodyFade {
   from {
@@ -371,6 +394,28 @@ h5 {
   }
 }*/
 @media only screen and (max-device-width: 667px) {
+  header {
+    height: 60px; }
+  .logo {
+    height: 45px;
+    width: auto; }
+  .icon {
+    height: 25px;
+    width: auto; }
+  /*    .mail {
+      width: 49px;
+      height: 35px;
+    }
+
+    .mail-top {
+      width: 35px;
+      height: 35px;
+    }
+
+    .mail-bottom {
+      width: 35px;
+      height: 35px;
+    }*/
   .container {
     width: 100%;
     height: 1400px;
@@ -378,16 +423,26 @@ h5 {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column; }
-  .side_two {
-    -ms-flex-preferred-size: 70%;
-        flex-basis: 70%; }
   .five, .eight {
-    -ms-flex-negative: 2;
-        flex-shrink: 2; }
+    -ms-flex-preferred-size: 0%;
+        flex-basis: 0%; }
   h1 {
-    font-size: 12px; }
+    font-size: 15px;
+    opacity: 1; }
   h1:nth-child(2), h1:nth-child(3) {
-    display: none; } }
+    display: none; }
+  h4 {
+    font-size: 22px;
+    margin-left: 8px;
+    opacity: 0.2; }
+  h2 {
+    font-size: 22px;
+    opacity: 0.5; }
+  .bodyText, h5 {
+    font-size: 28px; }
+  .line {
+    margin-top: 50px;
+    opacity: 0.5; } }
 
 @media only screen and (max-width: 600px) {
   .container {
