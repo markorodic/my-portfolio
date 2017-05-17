@@ -370,7 +370,26 @@ h5 {
     opacity: 0;
   }
 }*/
-@media only screen and (max-width: 650px) {
+@media only screen and (max-device-width: 667px) {
+  .container {
+    width: 100%;
+    height: 1400px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+  .side_two {
+    -ms-flex-preferred-size: 70%;
+        flex-basis: 70%; }
+  .five, .eight {
+    -ms-flex-negative: 2;
+        flex-shrink: 2; }
+  h1 {
+    font-size: 12px; }
+  h1:nth-child(2), h1:nth-child(3) {
+    display: none; } }
+
+@media only screen and (max-width: 600px) {
   .container {
     width: 100%;
     height: 1400px;
