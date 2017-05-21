@@ -127,36 +127,36 @@ window.onload = function() {
 	})
 
 	// Change box color on mousemove
-	document.onmousemove = function() {
-	  var width = (document.body.clientWidth)/(252 - 23)
-	  var height = document.body.clientHeight/(253 - 2)
-	  var x = (parseInt(event.clientX/ width,10) + 23)/4+180  
-	  var y = (parseInt(event.clientY/ height,10))/2 + 120
-	  var x1 = 200 - (parseInt(event.clientX/ width,10) + 23)
-	  var y2 = 200 - (parseInt(event.clientY/ height,10) + 2)/2
-	  
-	  env[0].style.backgroundColor = "rgba(" + x1 + ", " + y2 + ", 220, 0.5)"
-	  env[1].style.backgroundColor = "rgba(" + x1 + ", " + y2 + ", 220, 0.5)"
-	  env[2].style.backgroundColor = "rgba(" + x1 + ", " + y2 + ", 220, 0.125)"
-
-	  var count = 0
-	  while (count < 8) {
-	  	body[count].style.color = "rgb(" + y + ", " + y + ", " + y +")"
-		count++
-	  }
-
-	  var count = 0
-	  while (count < 8) {
-	  	title[count].style.color = "rgb(" + y + ", " + y + ", " + y +")"
-		count++
-	  }
-
-	  var boxArray = Object.keys(whichBox).map(function(key) {
-      	return whichBox[key]
-	  })
-
-	  boxArray.forEach(function(box) {
-	  	box.style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
-	  })
-	}
+	//document.onmousemove = function() {
+	//  var width = (document.body.clientWidth)/(252 - 23)
+	//  var height = document.body.clientHeight/(253 - 2)
+	//  var x = (parseInt(event.clientX/ width,10) + 23)/4+180  
+	//  var y = (parseInt(event.clientY/ height,10))/2 + 120
+	//  var x1 = 200 - (parseInt(event.clientX/ width,10) + 23)
+	//  var y2 = 200 - (parseInt(event.clientY/ height,10) + 2)/2
+	//  
+	//  env[0].style.backgroundColor = "rgba(" + x1 + ", " + y2 + ", 220, 0.5)"
+	//  env[1].style.backgroundColor = "rgba(" + x1 + ", " + y2 + ", 220, 0.5)"
+	//  env[2].style.backgroundColor = "rgba(" + x1 + ", " + y2 + ", 220, 0.125)"
+//
+	//  var count = 0
+	//  while (count < 8) {
+	//  	body[count].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+	//	count++
+	//  }
+//
+	//  var count = 0
+	//  while (count < 8) {
+	//  	title[count].style.color = "rgb(" + y + ", " + y + ", " + y +")"
+	//	count++
+	//  }
+//
+	//  var boxArray = Object.keys(whichBox).map(function(key) {
+      	//return whichBox[key]
+	//  })
+//
+	//  boxArray.forEach(function(box) {
+	//  	box.style.backgroundColor = "rgb(" + x + ", " + x + ", " + x +")"
+	//  })
+	//}
 }
