@@ -18,7 +18,7 @@ body {
 
 header {
   height: 50px;
-  width: 100%;
+  width: 900px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -57,45 +57,41 @@ h1 {
   margin-left: 10px;
   margin-top: 26px; }
 
-.icon {
-  height: 20px;
-  width: auto;
-  opacity: 0.5;
-  margin-right: 20px; }
-
-/*.mail{
+.mail {
   margin-right: 4px;
-  width: 36px;
-  height: 24px;
+  width: 34px;
+  height: 22px;
   border-radius: 2%;
-  background-color: #2196F3;
+  background-color: #444444;
   overflow: hidden;
-}
+  opacity: 01; }
 
 .mail-top {
-    z-index: 50;
-    position: relative;
-    width: 24px;
-    height: 24px;
-    background: black;
-    background: #1976D2;
-    transform: rotate(45deg);
-    opacity: 0.5;
-    top: -12px;
-    left: 7px;
-    box-shadow: 5px 0px 4px (188, 188, 188,0.4);
-}
+  z-index: 50;
+  position: relative;
+  width: 26px;
+  height: 22px;
+  background: black;
+  background: #0f0f0f;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  opacity: 0.85;
+  top: -12px;
+  left: 3px;
+  box-shadow: 5px 0px 4px 188, 188, 188, 0.4; }
 
 .mail-bottom {
-    z-index: 20;
-    position: relative;
-    width: 24px;
-    height: 24px;
-    background: rgba(25,106,188, 0.15);
-    transform: rotate(45deg);
-    top: -14px;
-    left: 8px;
-}*/
+  z-index: 20;
+  position: relative;
+  width: 22px;
+  height: 22px;
+  background: #282828;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: -14px;
+  left: 7px;
+  opacity: 0.4; }
+
 /*Grid*/
 .container {
   height: 700px;
@@ -297,18 +293,20 @@ h1 {
   pointer-events: none; }
 
 h4 {
-  margin: 5px;
-  font-size: 10px;
-  font-weight: 400;
+  margin: 2px;
+  font-size: 16px;
+  font-weight: 500;
   text-align: left;
-  opacity: 0.5; }
+  opacity: 0.2;
+  border: 1px solid lightgrey; }
 
 h2 {
   margin: auto;
   padding-top: 5px;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 400;
-  letter-spacing: 3px; }
+  letter-spacing: 3px;
+  opacity: 0.9; }
 
 .bodyText {
   display: none;
@@ -328,13 +326,20 @@ h2 {
   font-size: 13px;
   opacity: 0;
   -webkit-animation: bodyFade 1s 0.9s forwards;
-          animation: bodyFade 1s 0.9s forwards; }
+          animation: bodyFade 1s 0.9s forwards;
+  line-height: 26px; }
 
 h5 {
   margin: 0px 0px -30px 0px; }
 
+h3 {
+  letter-spacing: 5px;
+  font-weight: 200;
+  font-size: 18px; }
+
 .line {
-  margin-top: 40px;
+  margin-top: -8px;
+  margin-bottom: 10px;
   height: 1px;
   width: 100px;
   background: grey;
@@ -369,9 +374,10 @@ p {
     margin: 70px; } }
 
 h5 {
+  margin-top: 10px;
   font-size: 12px;
   font-weight: 100;
-  opacity: .4; }
+  opacity: 0.2; }
 
 /*@keyframes textMove {
   30% {
@@ -384,7 +390,6 @@ h5 {
     opacity: 1;
   }
 }
-
 @keyframes titleMove {
   0% {
     opacity: 1;
@@ -395,30 +400,27 @@ h5 {
 }*/
 @media only screen and (max-device-width: 667px) {
   header {
-    height: 60px; }
+    height: 100px;
+    width: 98%;
+    margin-top: 0px; }
   .logo {
     height: 45px;
-    width: auto; }
-  .icon {
-    height: 25px;
-    width: auto; }
-  /*    .mail {
-      width: 49px;
-      height: 35px;
-    }
-
-    .mail-top {
-      width: 35px;
-      height: 35px;
-    }
-
-    .mail-bottom {
-      width: 35px;
-      height: 35px;
-    }*/
+    width: auto;
+    margin-right: 20px; }
+  .mail {
+    width: 50px;
+    height: 35px; }
+  .mail-top {
+    width: 34px;
+    height: 30px;
+    left: 7px; }
+  .mail-bottom {
+    width: 30px;
+    height: 30px;
+    left: 9px; }
   .container {
     width: 100%;
-    height: 1400px;
+    height: 81vh;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -426,11 +428,11 @@ h5 {
   .five, .eight {
     -ms-flex-preferred-size: 0%;
         flex-basis: 0%; }
+  .box {
+    margin: 4px; }
   h1 {
-    font-size: 15px;
-    opacity: 1; }
-  h1:nth-child(2), h1:nth-child(3) {
-    display: none; }
+    font-size: 28px;
+    font-weight: 300; }
   h4 {
     font-size: 22px;
     margin-left: 8px;
@@ -438,21 +440,33 @@ h5 {
   h2 {
     font-size: 22px;
     opacity: 0.5; }
+  h3 {
+    letter-spacing: 5px;
+    font-weight: 200;
+    font-size: 38px;
+    line-height: 58px;
+    width: 700px; }
+  p {
+    font-size: 28px;
+    line-height: 46px; }
   .bodyText, h5 {
     font-size: 28px; }
   .line {
-    margin-top: 50px;
-    opacity: 0.5; } }
+    opacity: 0.8; } }
 
+/*
 @media only screen and (max-width: 600px) {
   .container {
-    width: 100%;
-    height: 1400px;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column; }
+      width: 100%;
+      height: 1400px;
+      flex-direction: column;
+  }
+
   h1 {
-    font-size: 12px; }
+    font-size: 12px;
+  }
+
   h1:nth-child(2), h1:nth-child(3) {
-    display: none; } }
+    display: none;
+  }
+}*/
