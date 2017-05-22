@@ -237,7 +237,7 @@ h4 {
   font-weight: 500;
   text-align: left;
   opacity: 0.2;
-  border: 1px solid lightgrey;
+  border: none;
 }
 
 h2 {
@@ -294,6 +294,7 @@ h3 {
 
 p {
   animation: marginGrow 1s ease-in forwards;
+  opacity: 0.5;
 }
 
 @keyframes marginGrow {

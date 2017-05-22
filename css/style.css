@@ -298,7 +298,7 @@ h4 {
   font-weight: 500;
   text-align: left;
   opacity: 0.2;
-  border: 1px solid lightgrey; }
+  border: none; }
 
 h2 {
   margin: auto;
@@ -359,7 +359,8 @@ h3 {
 
 p {
   -webkit-animation: marginGrow 1s ease-in forwards;
-          animation: marginGrow 1s ease-in forwards; }
+          animation: marginGrow 1s ease-in forwards;
+  opacity: 0.5; }
 
 @-webkit-keyframes marginGrow {
   from {
