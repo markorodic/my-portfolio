@@ -294,6 +294,7 @@ h1 {
 
 h4 {
   margin: 2px;
+  margin-right: -10px;
   font-size: 16px;
   font-weight: 500;
   text-align: left;
@@ -448,12 +449,13 @@ h5 {
     line-height: 58px;
     width: 700px; }
   p {
-    font-size: 28px;
+    font-size: 26px;
     line-height: 46px; }
   .bodyText, h5 {
     font-size: 28px; }
   .line {
-    opacity: 0.8; } }
+    opacity: 0.8;
+    margin-bottom: -30px; } }
 
 /*
 @media only screen and (max-width: 600px) {

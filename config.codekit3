@@ -70,17 +70,6 @@
 		"oT": 1,
 		"q": 100
 		},
-	"\/img\/email.png": {
-		"ft": 32768,
-		"iS": 880,
-		"oA": 0,
-		"oAP": "\/img\/email.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
 	"\/img\/Github.png": {
 		"ft": 32768,
 		"iS": 1187,
@@ -136,6 +125,15 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/js\/script-min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/js\/script.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/js\/script-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
