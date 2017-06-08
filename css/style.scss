@@ -335,6 +335,21 @@ h5 {
   }
 }*/
 
+@media only screen and (max-width: 705px) {
+
+  h2 {
+    font-size: 8px;
+  }
+  
+}
+
+@media only screen and (max-width: 580px) {
+
+  .container {
+    flex-wrap: wrap;
+  }
+
+}
 
 
 

@@ -401,6 +401,15 @@ h5 {
     opacity: 0;
   }
 }*/
+@media only screen and (max-width: 705px) {
+  h2 {
+    font-size: 8px; } }
+
+@media only screen and (max-width: 580px) {
+  .container {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; } }
+
 @media only screen and (max-device-width: 667px) {
   header {
     height: 100px;
